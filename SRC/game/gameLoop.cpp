@@ -34,7 +34,6 @@ void draw(cr_class_t *object)
     object->window.window.draw(object->freezer.sprite);
     for (int i = 0; i < 6; i++) object->window.window.draw(object->txtName[i]);
     for (int i = 0; i < 6; i++) object->window.window.draw(object->txtNB[i]);
-    if (object->hammer.appear > 0) object->window.window.draw(object->hammer.sprite);
 }
 
 void hammerBam(cr_class_t *object)
@@ -94,7 +93,6 @@ void gameLoop(cr_class_t *object)
             if (event.type == sf::Event::MouseButtonPressed) {
                 object->hammer.pos.x = event.mouseButton.x -20;
                 object->hammer.pos.y = event.mouseButton.y -25;
-                std::cout << "POSITION X: " << event.mouseButton.x <<" Y: " << event.mouseButton.y << std::endl;
                 hammerBam(object);
                 for (int i = 0; i < 6; i++) {
                     object->button[i].saveMouse.x = event.mouseButton.x;
@@ -119,6 +117,7 @@ void gameLoop(cr_class_t *object)
         draw(object);
         drawLocks(object);
         drawButton(object);
+        if (object->hammer.appear > 0) object->window.window.draw(object->hammer.sprite);
 
         //display
         object->window.window.display();
@@ -129,13 +128,11 @@ void Player::Click()
 {
     unsigned long long gain = 1;
 
-    gain += (Nb_toaster * _gain_toaster); std::cout << Nb_toaster * _gain_toaster << std::endl;
-    gain += (Nb_microwave * _gain_microwave); std::cout << Nb_microwave * _gain_microwave << std::endl;
-    gain += (Nb_hoven * _gain_hoven); std::cout << Nb_hoven * _gain_hoven << std::endl;
-    gain += (Nb_fridge * _gain_fridge); std::cout << Nb_fridge * _gain_fridge << std::endl;
-    gain += (Nb_freezer * _gain_freezer); std::cout << Nb_freezer * _gain_freezer << std::endl;
+    gain += (Nb_toaster * _gain_toaster);
+    gain += (Nb_microwave * _gain_microwave);
+    gain += (Nb_hoven * _gain_hoven);
+    gain += (Nb_fridge * _gain_fridge);
+    gain += (Nb_freezer * _gain_freezer);
 
     this->addGold(gain);
-    std::cout << "DEBUG --" << gain << "-- Money earned DEBUG" << std::endl;
-    std::cout << "DEBUG --" << this->getGold() << "-- Money TOTAL DEBUG" << std::endl;
 }

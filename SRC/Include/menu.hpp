@@ -14,7 +14,7 @@ class Menu
         sf::Text name;
         sf::Vector2f ppos = {350, 800};
         sf::Vector2f qpos = {1400, 800};
-        sf::Vector2f npos = {375, 100};
+        sf::Vector2f npos = {325, 100};
         sf::Music music;
 
     Menu() {
@@ -49,8 +49,8 @@ class Lore
     sf::Text skip;
     sf::Font font;
     std::string Text[6] = {"You are a resident of \"The Glorious Nation\".", "Your daughter is sick but the nation has a cure.", "You will have to work hard to get it.", "Fortunately, a repair station has just become available.", "Try to do better than the old one.", ""};
-    sf::Vector2f pos[6] = {{525, 200}, {525, 200}, {630, 200}, {425, 200}, {600, 200}, {0, 0}};
-    sf::Vector2f spos = {800, 800};
+    sf::Vector2f pos[6] = {{475, 200}, {425, 200}, {530, 200}, {275, 200}, {540, 200}, {0, 0}};
+    sf::Vector2f spos = {725, 800};
 
     Lore() {
         font.loadFromFile("./Asset/GOTHIC.ttf");
